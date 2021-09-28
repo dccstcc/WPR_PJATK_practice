@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+</head>
+<body>
+<?php
+$imgDir = "./images";
+
+//odczytywanie parametru
+if(isSet ($_GET['imgid'])) {
+$imgId = $_GET['imgid'];
+}
+else {
+$imgId = 0;
+}
+
+//odczytywanie zawartosci katalogu
+$dir = scandir($imgDir);
+array_shift($dir);
+array_shift($dir);
+
+$count = count($dir);
+
+//sprawdzenie poprawnosci parametru
+if($imgId < 0 || $imgId >= $count || !is_numeric($imgId)) {
+$imgId = 0;
+}
+
+//ustalenie nazwy biezacego obrazu
+//oraz identyfikatorow obrazow dla odnosnikow
+$imgName = $dir["$imgId"];
+$first = 0;
+$last = $count - 1;
+if ($imgId < $count - 1) {
+$next = $imgId + 1;
+}
+else {
+$next = $count - 1;
+}
+
+if($imgId > 0) {
+$prev = $imgId - 1;
+}
+else {
+$prev = 0;
+}
+?>
+<div>
+<div id='obraz' style='text-align:center'>
+<?php
+echo "<img src=\"$imgDir/$imgName\" alt=\"$imgName\ />";
+?>
+</div>
+<div id='opis' style='text-align:center'>
+<?php
+$imgid++;
+echo "Obraz $imgName ($imgId z $count)";
+?>
+</div>
+<div id='nazwigacja' style='text-align:center'>
+<?php
+echo "<a href=\"galeria.php?imgid=$first\">Pierwszy</a> ";
+echo "<a href=\"galeria.php?imgid=$prev\">Poprzedni</a> ";
+echo "<a href=\"galeria.php?imgid=$next\">Nastepny</a> ";
+echo "<a href=\"galeria.php?imgid=$last\">Ostatni</a> ";
+?>
+</div>
+</div>
+</body>
+</html>
