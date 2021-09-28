@@ -1,0 +1,34 @@
+<html>
+<head>
+</head>
+<body>
+<FORM action="skryptformularza.php" method="GET" NAME="Formularz">
+<fieldset>
+<legend> Formularz Kontaktowy </legend>
+<ul>
+<li> Imiê i nazwisko <INPUT TYPE=TEXT NAME="iin" placeholder="Twoje imiê i nazwisko" required> </li>
+<li> Adres e-mail <INPUT TYPE=TEXT NAME="aem" required placeholder="Twój adres e-mail np. j.kowal"> </li>
+<li>Telefon kontaktowy <INPUT TYPE=TEXT NAME="tk" required placeholder="Dozwolone znaki: cyfry, spacje"> </li>
+<li> Wybierz temat
+<SELECT NAME="wt" SIZE="1" required>   
+<OPTION> Opcja1 </OPTION>
+<OPTION> Opcja2 </OPTION>
+<OPTION> Opcja3 </OPTION>
+</SELECT> 
+</li>
+<li> treœæ wiadomoœci <TEXTAREA NAME="tw" required placeholder="Wpisz tutaj treœæ swojej wiadomoœci">  </TEXTAREA> </li>
+<li> Preferowane forma kontaktu
+<ul> <li> E-mail <INPUT TYPE=CHECKBOX NAME=email> </li> <li> Telefon <INPUT TYPE=CHECKBOX NAME=telefon> </li> </ul> 
+</li>
+<li> Posiadasz ju¿ stronê WWW?
+<ul> <li> Tak <INPUT TYPE=RADIO NAME=tak VALUE="TAK"> </li> <li> Nie <INPUT TYPE=RADIO NAME=tak VALUE="NIE"> </li> </ul>  
+</li> 
+<li> Za³¹czniki
+<INPUT TYPE=file NAME="zalaczniki" VALUE="Wybierz plik"> 
+</li>
+</ul>
+</fieldset>
+<INPUT TYPE=SUBMIT VALUE="Wyœlij formularz">
+</FORM>
+</body>
+</html>
